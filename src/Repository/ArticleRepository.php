@@ -20,7 +20,7 @@ class ArticleRepository
 
         $query->execute();
         foreach ($query->fetchAll() as $line) {
-            $list[] = new Article($line["title"], $line["author"], $line["content"], $line["img"], $line["id"], $line["id_categorie"]);
+            $list[] = new Article($line["title"], $line["author"], $line["content"], $line["img"], $line["id_categorie"], $line["id"]);
         }
         return $list;
     }
@@ -33,7 +33,7 @@ class ArticleRepository
         $query->bindValue(":id", $id);
         $query->execute();
         foreach ($query->fetchAll() as $line) {
-            return new Article($line["title"], $line["author"], $line["content"], $line["img"], $line["id"], $line["id_categorie"]);
+            return new Article($line["title"], $line["author"], $line["content"], $line["img"], $line["id_categorie"], $line["id"]);
         }
         return null;
     }
@@ -86,7 +86,7 @@ class ArticleRepository
         $query->bindValue(":term", "%" . $term . "%");
         $query->execute();
         foreach ($query->fetchAll() as $line) {
-            $list[] = new Article($line["title"], $line["author"], $line["content"], $line["img"], $line["id_categorie"]);
+            $list[] = new Article($line["title"], $line["author"], $line["content"], $line["img"], $line["id_categorie"], $line["id"]);
         }
         return $list;
     }
