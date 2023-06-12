@@ -90,4 +90,32 @@ class ArticleRepository
         }
         return $list;
     }
+    /* public function findAllCat($page = 1, $pageSize = 10,int $id)
+    {
+        $list = [];
+        $connection = Database::getConnection();
+        $offset = ($page - 1) * $pageSize;
+        $query = $connection->prepare("SELECT * FROM articles WHERE id=:id");
+        $query->bindValue('pageSize', $pageSize, \PDO::PARAM_INT);
+        $query->bindValue('page', $offset, \PDO::PARAM_INT);
+        $query->bindValue(":id", $id);
+
+        $query->execute();
+        foreach ($query->fetchAll() as $line) {
+            $list[] = new Article($line["title"], $line["author"], $line["content"], $line["img"], $line["id_categorie"], $line["id"]);
+        }
+        return $list;
+    } */
+    public function findByCat(int $id_categorie)
+        {
+            $connection = Database::getConnection();
+            $listC = [];
+            $query = $connection->prepare("SELECT * FROM articles WHERE id_categorie=:id_categorie");
+            $query->bindValue(":id_categorie", $id_categorie);
+            $query->execute();
+            foreach ($query->fetchAll() as $lineC) {
+                $listC[] = new Article($lineC["title"], $lineC["author"], $lineC["content"], $lineC["img"], $lineC["id_categorie"], $lineC["id"]);
+            }
+            return $listC;
+        }
 }
