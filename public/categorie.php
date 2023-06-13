@@ -11,6 +11,8 @@ $repositoryC = new CategorieRepository();
 
 $repositoryCo = new CommentRepository();
 
+$categories = $repositoryC->findAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +27,38 @@ $repositoryCo = new CommentRepository();
 
 <body>
 
+<div class="container-fluid">
+        <h1>Liste categories</h1>
+        <div class="row g-3">
+            <?php foreach ($categories as $item) { ?>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <?= $item->getCategorie() ?>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+
+<!-- <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+        <?php
+        foreach ($repositoryC->findAll()as $key => $item) {
+         echo $item->getCategorie();
+    }
+    ?>
+    </h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
 </body>
 
 </html>

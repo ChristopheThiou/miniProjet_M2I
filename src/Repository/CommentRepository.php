@@ -84,4 +84,16 @@ class CommentRepository
         }
         return $list;
     }
+    public function findByCom(int $id_article)
+        {
+            $connection = Database::getConnection();
+            $listCo = [];
+            $query = $connection->prepare("SELECT * FROM comments WHERE id_article=:id_article");
+            $query->bindValue(":id_article", $id_article);
+            $query->execute();
+            foreach ($query->fetchAll() as $lineCo) {
+                $listCo[] = new Comment($lineCo["comment"], $lineCo["id_article"], $lineCo["id"]);
+            }
+            return $listCo;
+        }
 }
