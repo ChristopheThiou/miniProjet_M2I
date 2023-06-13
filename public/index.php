@@ -29,37 +29,20 @@ $comments = $repositoryCo->findAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/layout.css">
     <title>Acceuil</title>
 </head>
 
 <body class="container-fluid">
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"> <img id="logo" src="https://cdn.pixabay.com/photo/2019/06/27/21/14/logo-4303138_1280.png" alt="oui"> </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
 
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <a class="navbar-brand" href="#"> <img id="logo"
+                src="https://cdn.pixabay.com/photo/2019/06/27/21/14/logo-4303138_1280.png" alt="oui"> </a>
+    </nav>
+
+    <h1 class="text-center">Blog cuisine</h1>
 
     <div id="carouselExample" class="carousel slide w-50 mx-auto">
         <div class="carousel-inner">
@@ -75,8 +58,8 @@ $comments = $repositoryCo->findAll();
                         By
                         <?= $item->getAuthor() ?>
                     </div>
-                    <a href="article.php?id=<?= $item->getId() ?>"><img id="img" src="<?= $item->getImg() ?>" class="d-block w-100"
-                            alt="oui"></a>
+                    <a href="article.php?id=<?= $item->getId() ?>"><img id="img" src="<?= $item->getImg() ?>"
+                            class="d-block w-100" alt="oui"></a>
                     <div>
                         <?=
                             $repositoryC->findById($item->getId_categorie())->getCategorie()
