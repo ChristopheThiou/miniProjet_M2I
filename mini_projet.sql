@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 12 juin 2023 à 11:32
+-- Généré le : mer. 14 juin 2023 à 09:03
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -27,8 +27,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `articles`
 --
 
-DROP TABLE articles if EXISTS;
-
 CREATE TABLE `articles` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -42,13 +40,15 @@ CREATE TABLE `articles` (
 -- Déchargement des données de la table `articles`
 --
 
+DROP TABLE articles if EXISTS;
+
 INSERT INTO `articles` (`id`, `title`, `author`, `content`, `img`, `id_categorie`) VALUES
-(1, 'Les patates sautées', 'Christophe', 'Éplucher les patates et les faires revenir a la poelle', '', 1),
-(2, 'le boeuf bourginon', 'Phillipe', 'Faire mijoter le boeud dans une marmitte avec du vin rouge', '', 1),
-(3, 'Les merguez', 'Sina', 'Faire grillé les merguez au barbecu', '', 2),
-(4, 'Couscous', 'Momo', 'Faire la semoule les légumes et la viande', '', 2),
-(5, 'Sushi', 'Xiaoyu', 'Trancher de fine tranche de poisson et les déposer sur un pavé de riz vinaigré', '', 3),
-(6, 'Bo bun', 'Christophe', 'Mettre les vermicelles avec les nems et les légumes dans un bol', '', 3);
+(1, 'Les patates sautées', 'Christophe', 'Éplucher les patates et les faires revenir a la poelle', 'https://cdn.pixabay.com/photo/2018/07/19/13/51/potato-3548557_1280.jpg', 1),
+(2, 'le boeuf bourginon', 'Phillipe', 'Faire mijoter le boeud dans une marmitte avec du vin rouge', 'https://media.istockphoto.com/id/1199343924/fr/photo/boeuf-bourguignon.jpg?s=2048x2048&w=is&k=20&c=jXpsIvCainnRDRKq1mcDoEoPVtDnUZahfhL2HsqhkQc=', 1),
+(3, 'Les merguez', 'Sina', 'Faire grillé les merguez au barbecu', 'https://cdn.pixabay.com/photo/2017/09/24/22/13/barbecue-2783457_1280.jpg', 2),
+(4, 'Couscous', 'Momo', 'Faire la semoule les légumes et la viande', 'https://cdn.pixabay.com/photo/2016/07/08/10/16/couscous-1503943_1280.jpg', 2),
+(5, 'Sushi', 'Xiaoyu', 'Trancher de fine tranche de poisson et les déposer sur un pavé de riz vinaigré', 'https://cdn.pixabay.com/photo/2021/01/01/15/31/sushi-balls-5878892_1280.jpg', 3),
+(6, 'Bo bun', 'Christophe', 'Mettre les vermicelles avec les nems et les légumes dans un bol', 'https://cdn.pixabay.com/photo/2016/05/09/10/26/rice-1381146_1280.jpg', 3);
 
 -- --------------------------------------------------------
 
